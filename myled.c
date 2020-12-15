@@ -4,7 +4,8 @@
 #include <linux/device.h>
 #include <linux/uaccess.h>
 #include <linux/io.h>　
-#include <linux/delay.h>
+#include <linux/dilay.h>
+#include <linux/stdio.h>
 
 MODULE_AUTHOR("Takaya Sakamoto and Ryuichi Ueda and Yuya hasegawa");
 MODULE_DESCRIPTION("driver for LED control");                                                                                                                                                                                                           MODULE_AUTHOR("Yuya Hasegawa and Ryuichi Ueda , Takaya Sakamoto");                                                   MODULE_DESCRIPTION("driver for LED control");
@@ -18,13 +19,13 @@ static volatile u32 *gpio_base = NULL;
 
 static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_t* pos)
 {
-char c;
+const char *c;
 if(copy_from_user(&c,buf,sizeof(char)))
 return -EFAULT;
 
 char *ptr = c;
 
-while(*ptr != '\0'){
+while(fgetc(ptr) != '\0'){
   if(*ptr == 'a' || *ptr == 'A'){ //・ー
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);//・
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
@@ -194,6 +195,10 @@ while(*ptr != '\0'){
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
   } else {//例外処理
+    for (int i = 0; i < 5; i++){
+    gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);
+    }
+
     gpio_base[10] = 1 << 25;
     msleep(1000);
   }
@@ -241,3 +246,17 @@ static int __init init_mod(void)
  device_create(cls, NULL, dev, NULL, "myled%d",MINOR(dev));
  return 0;
 }
+
+
+static void __exit cleanup_mod(void)
+{
+ cdev_del(&cdv);
+ device_destroy(cls, dev);
+ class_destroy(cls);
+ unregister_chrdev_region(dev, 1);
+ printk(KERN_INFO "%s is unloaded. major:%d\n",__FILE__,MAJOR(dev));
+ iounmap(gpio_base);
+}
+
+module_init(init_mod);
+module_exit(cleanup_mod);
