@@ -12,8 +12,11 @@
 $ git clone https://github.com/sakamoto-takaya/Robot_Systems_Device_Driver.git
 
 $ cd Robot_Systems_Device_Driver
+
 $ make
+
 $ sudo insmod myled.ko
+
 $ sudo mknod /dev/myled0 c 507 0
 
 
