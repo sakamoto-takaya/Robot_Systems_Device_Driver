@@ -18,15 +18,13 @@ static volatile u32 *gpio_base = NULL;
 
 static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_t* pos)
 {
-char* c[10];
+char c[10];
 int i , j;
 i = 0;
 j = 0;
 
 if(copy_from_user(&c,buf,sizeof(char)))
 return -EFAULT;
-
-cher *ptr = c[10]
 
 while(c[i] != 'EOF'){
   if(c[i] == 'a' || c[i] == 'A'){ //・ー
