@@ -18,7 +18,7 @@ static volatile u32 *gpio_base = NULL;
 
 static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_t* pos)
 {
-char* c[30];
+char* c[10];
 int i , j;
 i = 0;
 j = 0;
@@ -26,7 +26,9 @@ j = 0;
 if(copy_from_user(&c,buf,sizeof(char)))
 return -EFAULT;
 
-for(i = 0; i < 30; i++){
+cher *ptr = c[10]
+
+while(c[i] != 'EOF'){
   if(c[i] == 'a' || c[i] == 'A'){ //・ー
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);//・
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
@@ -199,9 +201,12 @@ for(i = 0; i < 30; i++){
     for (j = 0; j < 5; j++){
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);
     }
-
     gpio_base[10] = 1 << 25;
     msleep(1000);
+
+    if(i > 10){
+      break;
+    }
   }
   gpio_base[10] = 1 << 25;
   msleep(500);
