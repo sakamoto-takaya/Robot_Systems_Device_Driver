@@ -25,7 +25,8 @@ int j = 0;
 if(copy_from_user(&c,buf,sizeof(char)))
 return -EFAULT;
 
-for(i=0; c[i] != '\0' i++){
+if (('a'<= c[0] && c[0] <='z') ||('A'<= c[0] && c[0] <='Z')||('0'<= c[0] && c[0] <='9')){
+ for(i=0; i < 10; i++){
   if(c[i] == 'a' || c[i] == 'A'){ //・ー
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);//・
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
@@ -194,14 +195,14 @@ for(i=0; c[i] != '\0' i++){
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
-  } else {//例外処理
-    for (j = 0; j < 5; j++){
-    gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);
-    }
   }
   gpio_base[10] = 1 << 25;
   msleep(1000);
-
+}
+}else {
+ for (j = 0; j < 5; j++){
+  gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);
+ }
 }
 
 return 1;
