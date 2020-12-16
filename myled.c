@@ -19,14 +19,16 @@ static volatile u32 *gpio_base = NULL;
 
 static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_t* pos)
 {
-const char *c;
+char* c;
+int i , j;
+i = 0;
+j = 0;
+
 if(copy_from_user(&c,buf,sizeof(char)))
 return -EFAULT;
 
-char *ptr = c;
-
-while(fgetc(ptr) != '\0'){
-  if(*ptr == 'a' || *ptr == 'A'){ //・ー
+while(c[i] != '\0'){
+  if(c[i] == 'a' || c[i] == 'A'){ //・ー
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);//・
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
   } else if (*ptr == 'b' || *ptr == 'B'){//ー・・・
@@ -195,16 +197,18 @@ while(fgetc(ptr) != '\0'){
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
   } else {//例外処理
-    for (int i = 0; i < 5; i++){
+    for (j = 0; j < 5; j++){
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);
     }
 
     gpio_base[10] = 1 << 25;
     msleep(1000);
+    i++
   }
   gpio_base[10] = 1 << 25;
   msleep(500);
   }
+
 return 1;
 }
 
