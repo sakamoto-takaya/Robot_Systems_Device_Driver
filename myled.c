@@ -26,7 +26,7 @@ if(copy_from_user(&c,buf,sizeof(char)))
 return -EFAULT;
 
 if (('a'<= c && c <='z') ||('A'<= c && c <='Z')||('0'<= c && c <='9')){
- for(i=0; i < 10; i++){
+ for(i=0; i < 3; i++){
   if(c == 'a' || c == 'A'){ //・ー
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);//・
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
@@ -199,11 +199,11 @@ if (('a'<= c && c <='z') ||('A'<= c && c <='Z')||('0'<= c && c <='9')){
   gpio_base[10] = 1 << 25;
   msleep(1000);
 }
-}else {
+} /*else {
  for (j = 0; j < 5; j++){
   gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);
  }
-}
+} */
 
 return 1;
 }
