@@ -21,15 +21,15 @@ $ sudo insmod myled.ko  <br>
 $ sudo mknod /dev/myled0 c 507 0 <br>
 $ sudo chmod 666 /dev/myled0 <br>
 $ echo 文字 > /dev/myled0 //文字を打ち込むとモールスを3回光らせる <br>
-.
-.
-.
-$ sudo rm /dev/myled0 \n
-$ sudo rmmod myled //後処理 \n
+. <br> 
+. <br> 
+. <br> 
+$ sudo rm /dev/myled0  <br> 
+$ sudo rmmod myled //後処理  <br> 
  
 
 # プログラムの解説
-cher型で受け取った文字を、文字コードで判別し英数字の時に以下の処理を行った
-大文字小文字問わず、if文内の文字列に該当する場合、モースル信号のトン、ツーを光らせる。
+cher型で受け取った文字を、文字コードで判別し英数字の時に以下の処理を行った <br> 
+大文字小文字問わず、if文内の文字列に該当する場合、モースル信号のトン、ツーを光らせる。 <br> 
 
 # 動画 
