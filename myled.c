@@ -26,7 +26,7 @@ j = 0;
 if(copy_from_user(&c,buf,sizeof(char)))
 return -EFAULT;
 
-for(i = 0; i < 30; i++)
+for(i = 0; i < 30; i++){
   if(c[i] == 'a' || c[i] == 'A'){ //・ー
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);//・
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
@@ -212,8 +212,7 @@ return 1;
 
 static struct file_operations led_fops = {
  .owner = THIS_MODULE,
- .write = led_write,
- .read = sushi_read
+ .write = led_write
 };
 
 static int __init init_mod(void)
