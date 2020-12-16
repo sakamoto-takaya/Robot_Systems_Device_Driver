@@ -25,7 +25,7 @@ int j = 0;
 if(copy_from_user(&c,buf,sizeof(char)))
 return -EFAULT;
 
-while(c[i] != '\0'){
+for(i=0; c[i] != '\0' i++){
   if(c[i] == 'a' || c[i] == 'A'){ //・ー
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);//・
     gpio_base[7] = 1 << 25; msleep(600); gpio_base[10] = 1 << 25; msleep(200);//ー
@@ -199,12 +199,9 @@ while(c[i] != '\0'){
     gpio_base[7] = 1 << 25; msleep(200); gpio_base[10] = 1 << 25; msleep(200);
     }
   }
-  if(i > 10){
-    break;
-  }
   gpio_base[10] = 1 << 25;
   msleep(1000);
-  i++;
+
 }
 
 return 1;
