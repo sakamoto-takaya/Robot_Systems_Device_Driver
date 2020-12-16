@@ -4,11 +4,11 @@
 #include <linux/device.h>
 #include <linux/uaccess.h>
 #include <linux/io.h>　
-#include <linux/dilay.h>
+#include <linux/delay.h>
 #include <linux/stdio.h>
 
 MODULE_AUTHOR("Takaya Sakamoto and Ryuichi Ueda and Yuya hasegawa");
-MODULE_DESCRIPTION("driver for LED control");                                                                                                                                                                                                           MODULE_AUTHOR("Yuya Hasegawa and Ryuichi Ueda , Takaya Sakamoto");                                                   MODULE_DESCRIPTION("driver for LED control");
+MODULE_DESCRIPTION("driver for LED control");
 MODULE_LICENSE("GPL");
 MODULE_VERSION("0.0.1");
 
