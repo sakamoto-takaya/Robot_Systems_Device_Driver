@@ -34,11 +34,11 @@ cher型で受け取った文字を、文字コードで判別し英数字の時�
 
 # 動画 
 Hello. My name is Takaya Sakamoto. I'm 22. Thank you.
-と入力したものです
+と入力したものです <br>
 [動画](https://youtu.be/2eOcMRvzSrY)
 
 動画のように、英数字が入力されると対応するモールス信号を光らせます
 
 # ライセンス
-本リポジトリにはGPLv3が付与されています
+本リポジトリにはGPLv3が付与されています <br>
 [ライセンス](https://github.com/sakamoto-takaya/Robot_Systems_Device_Driver/blob/main/LICENSE)
