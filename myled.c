@@ -8,7 +8,7 @@
 
 MODULE_AUTHOR("Takaya Sakamoto and Ryuichi Ueda");
 MODULE_DESCRIPTION("driver for LED control");
-MODULE_LICENSE("GPL");
+MODULE_LICENSE("GPL v3");
 MODULE_VERSION("0.0.1");
 
 static dev_t dev;
