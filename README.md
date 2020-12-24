@@ -14,6 +14,7 @@
 
 # 実行方法
 
+'''
 '$ git clone https://github.com/sakamoto-takaya/Robot_Systems_Device_Driver.git //リポジトリのクローン' <br>
 '$ cd Robot_Systems_Device_Driver  //リポジトリの移動' <br> 
 '$ make //makeする' <br>
@@ -25,7 +26,7 @@
 . <br> 
 '$ sudo rm /dev/myled0'  <br> 
 '$ sudo rmmod myled //後処理'  <br> 
- 
+ '''
 
 # プログラムの解説
 cher型で受け取った文字を、文字コードで判別し英数字の時に以下の処理を行った <br> 
