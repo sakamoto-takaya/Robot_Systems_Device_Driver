@@ -14,18 +14,17 @@
 
 # 実行方法
 
-$ git clone https://github.com/sakamoto-takaya/Robot_Systems_Device_Driver.git //リポジトリのクローン <br>
-$ cd Robot_Systems_Device_Driver  //リポジトリの移動 <br> 
-$ make //makeする <br>
-$ sudo insmod myled.ko  <br>
-$ sudo mknod /dev/myled0 c 507 0 <br>
-$ sudo chmod 666 /dev/myled0 <br>
-$ echo 文字 > /dev/myled0 //文字を打ち込むとモールスを3回光らせる <br>
+'$ git clone https://github.com/sakamoto-takaya/Robot_Systems_Device_Driver.git //リポジトリのクローン' <br>
+'$ cd Robot_Systems_Device_Driver  //リポジトリの移動' <br> 
+'$ make //makeする' <br>
+'$ sudo insmod myled.ko'  <br>
+'$ sudo chmod 666 /dev/myled0' <br>
+'$ echo 文字 > /dev/myled0 //文字を打ち込むとモールスを3回光らせる' <br>
 . <br> 
 . <br> 
 . <br> 
-$ sudo rm /dev/myled0  <br> 
-$ sudo rmmod myled //後処理  <br> 
+'$ sudo rm /dev/myled0'  <br> 
+'$ sudo rmmod myled //後処理'  <br> 
  
 
 # プログラムの解説
