@@ -6,9 +6,9 @@
 #include <linux/io.h>　
 #include <linux/delay.h>
 
-MODULE_AUTHOR("Takaya Sakamoto and Ryuichi Ueda");
+MODULE_AUTHOR("(c) 2020 Takaya Sakamoto and Ryuichi Ueda");
 MODULE_DESCRIPTION("driver for LED control");
-MODULE_LICENSE("GPL v3 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>");
+MODULE_LICENSE("GPL v3");
 MODULE_VERSION("0.0.1");
 
 static dev_t dev;
