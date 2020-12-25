@@ -17,7 +17,7 @@
 ```
 $ git clone https://github.com/sakamoto-takaya/Robot_Systems_Device_Driver.git       //リポジトリのクローン 
 $ cd Robot_Systems_Device_Driver                                                     //リポジトリの移動 
-$ make //makeする 
+$ make                                                                               //makeする 
 $ sudo insmod myled.ko  
 $ sudo chmod 666 /dev/myled0 
 
@@ -26,7 +26,7 @@ $ echo 文字 > /dev/myled0
 $ echo 文字 > /dev/myled0
 
 
-$ sudo rm /dev/myled0                                                                //後処理   
+$ sudo rm /dev/myled0                                                                //後処理 
 $ sudo rmmod myled  
 ```
 
